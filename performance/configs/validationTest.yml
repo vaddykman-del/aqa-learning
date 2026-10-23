@@ -3,7 +3,7 @@ config:
   phases:
     - duration: 1
       arrivalRate: 1
-      name: Artillery First Test
+      name: Artillery First Validation Test
   plugins:
     ensure: {}
   ensure:
