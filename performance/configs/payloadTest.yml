@@ -1,0 +1,23 @@
+config:
+  target: "https://httpbin.io/"
+  phases:
+    - duration: 4
+      arrivalRate: 1
+      name: Payload test
+  payload:
+    - path: "../data/keywords.csv"
+      fields:
+        - "keyword1"
+        - "keyword2"
+      order: sequence
+scenarios:
+  - name: Getting a resource
+    flow:
+      - get:
+          url: "{{ target }}get?param1={{ keyword1 }}"
+      - post:
+          url: "{{ target }}post?param2={{ keyword2 }}"
+          json:
+            username: "Test User"
+            password: "Temp Password"
+      - log: "user got {{ keyword1 }} / {{ keyword2 }}"
