@@ -1,0 +1,22 @@
+config:
+  target: "https://httpbin.io/"
+  phases:
+    - duration: 6
+      arrivalRate: 1
+      name: Random Payload test
+  plugins:
+    ensure: {}
+  ensure:
+    conditions:
+      - expression: vusers.failed == 0
+  payload:
+    - path: "../data/keywords.csv"
+      fields:
+        - keyword1
+        - keyword2
+      order: random
+scenarios:
+  - name: Getting a resource
+    flow:
+      - get:
+          url: "{{ target }}get?param1={{ keyword1 }}&param2={{ keyword2 }}"

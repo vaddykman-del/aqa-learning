@@ -6,7 +6,7 @@ fs.mkdirSync(outDir, { recursive: true });
 
 const rows = [];
 for (let i = 1; i <= 500; i++) {
-  rows.push(`keyword${i},item${i}`);
+  rows.push(`valueA${i},valueB${i}`);
 }
 
 fs.writeFileSync(path.join(outDir, "keywords.csv"), rows.join("\n"));
