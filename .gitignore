@@ -2,3 +2,5 @@ node_modules/
 cypress.env.json
 performance/reports
 performance/data/keywords.csv
+cypress/screenshots/
+cypress/videos/
